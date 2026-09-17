@@ -40,3 +40,45 @@ Before you build custom Liquid Glass effects, understand that SwiftUI's built-in
 **Test this principle:** Switch Stage 0 between the 6 backgrounds. Notice how the Material button remains legible and integrated, while the opaque overlay becomes invisible or clashes with the content.
 
 ---
+
+## Stage 1 — Understand the Liquid Glass Design Language
+
+### 📋 What It's About
+Understanding hierarchy and intentional design. Stage 1 contrasts two philosophies: "glass everywhere" (every surface is elevated, hierarchy is noisy) versus "strategic glass" (glass only on controls/navigation, content is clear). The goal is to develop intuition about when glass improves hierarchy and when it merely decorates surfaces.
+
+### 🧠 Mental Model
+
+```
+GLASS EVERYWHERE                    STRATEGIC GLASS
+┌──────────────────────────┐        ┌──────────────────────────┐
+│ • All surfaces elevated  │        │ • Content on plain bg    │
+│ • No hierarchy           │        │ • Glass on controls only │
+│ • Content blends with    │        │ • Clear visual hierarchy │
+│   controls               │        │ • Guides attention       │
+│ • Looks noisy            │        │ • Feels organized        │
+│ • Hard to find primary   │        │ • Primary action obvious │
+│   action                 │        │                          │
+└──────────────────────────┘        └──────────────────────────┘
+         ❌ FAILS                            ✅ SUCCEEDS
+```
+
+**Key principle:** Glass communicates functional elevation. If everything is elevated, nothing is.
+
+### 🎯 Key Takeaway
+
+**Glass is a tool for hierarchy, not decoration.**
+
+Ask this question before adding glass to any element:
+
+> **Why should this element be visually separated from content beneath it?**
+
+If the answer is "it looks cool" or "everything else is glass," the glass is probably wrong. Glass should answer: "because this is a control," "because this navigates," "because this is an action the user needs to find."
+
+Content articles? Plain background.
+Footer metadata? Plain background.
+Primary action button? Glass.
+Secondary action buttons? Maybe glass, but might share a container.
+
+**The test:** Toggle between incorrect and preferred implementations on a busy, vibrant, and light background. Watch where your eye naturally goes. In the incorrect version (glass everywhere), you search for meaning. In the preferred version, hierarchy guides you.
+
+---
