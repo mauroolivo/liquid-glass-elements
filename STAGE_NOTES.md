@@ -82,3 +82,52 @@ Secondary action buttons? Maybe glass, but might share a container.
 **The test:** Toggle between incorrect and preferred implementations on a busy, vibrant, and light background. Watch where your eye naturally goes. In the incorrect version (glass everywhere), you search for meaning. In the preferred version, hierarchy guides you.
 
 ---
+
+## Stage 2 — System Liquid Glass before Custom Liquid Glass
+
+### 📋 What It's About
+Understanding that most UI problems are solved by appropriate system components before resorting to custom Liquid Glass. Stage 2 builds a realistic application using `NavigationStack`, `TabView`, `Toolbar`, `Form`, and `List`, then contrasts it with a custom floating palette approach. The goal is to demonstrate that **system components already solve hierarchy, styling, safe areas, accessibility, and rotation—for free.**
+
+### 🧠 Mental Model
+
+```
+SYSTEM COMPONENTS                   CUSTOM FLOATING GLASS
+┌──────────────────────────┐        ┌──────────────────────────┐
+│ • NavigationStack        │        │ • You control everything │
+│ • TabView                │        │ • You manage layout      │
+│ • Toolbar                │        │ • You handle safe areas  │
+│ • Form / List            │        │ • You respond to events  │
+│ • Sheets / Alerts        │        │ • You style manually     │
+├──────────────────────────┤        ├──────────────────────────┤
+│ ✅ Automatic styling     │        │ ❌ Manual styling        │
+│ ✅ Safe area handling    │        │ ❌ Safe area bugs        │
+│ ✅ Rotation support      │        │ ❌ Rotation issues       │
+│ ✅ Accessibility         │        │ ❌ Accessibility gaps    │
+│ ✅ Tested patterns       │        │ ❌ Unproven patterns     │
+│ ✅ OS-aware behavior     │        │ ❌ You reinvent wheels   │
+└──────────────────────────┘        └──────────────────────────┘
+      ✅ START HERE                    ⚠️ ONLY IF NEEDED
+```
+
+**Key principle:** System components are free solutions. Custom glass adds cost (code, testing, maintenance, accessibility). Only use custom glass when system components don't fit the interaction model.
+
+### 🎯 Key Takeaway
+
+**Adopt system design first; create custom glass only when genuinely required.**
+
+Before building a custom floating control palette, ask:
+
+> **Can I solve this with `NavigationStack`, `Toolbar`, `TabView`, `Menu`, or `Sheet`?**
+
+If yes, use the system component. If no (e.g., "I need immersive floating actions that morph based on content beneath"), then custom glass is justified.
+
+**Examples:**
+- **Primary navigation?** → `NavigationStack` (system, tested)
+- **Tab-based organization?** → `TabView` (system, tested)
+- **Toolbar actions?** → `Toolbar` (system, automatic safe area)
+- **Context menu?** → `Menu` or `.contextMenu` (system, adaptive)
+- **Unique interaction model?** → Custom glass (justified)
+
+**The test:** Toggle between system and custom floating in Stage 2. On rotation, check safe areas. Tap actions and verify touch targets. Compare accessibility. The system version requires almost zero work; the custom version requires you to solve every problem again.
+
+---
