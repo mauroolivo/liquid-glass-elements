@@ -210,3 +210,32 @@ Use a geometry system, not one-off numbers.
 The visual polish in glass UI is mostly geometry, not extra effects.
 
 ---
+
+## Stage 5 - Glass Buttons and Interaction
+
+### What It's About
+Stage 5 compares button styles (`plain`, `bordered`, `borderedProminent`, `glass`, `glassProminent`) and evaluates interaction hierarchy across primary, secondary, navigation, and destructive actions. The core exercise is intentionally making every action prominent, then reducing prominence to only what deserves it.
+
+### Mental Model
+
+```text
+ACTION IMPORTANCE
+    -> choose style weight
+    -> choose prominence
+    -> choose tint/semantic emphasis
+    -> preserve hierarchy
+```
+
+If all actions are prominent, users lose signal. Prominence should encode priority, not decoration.
+
+### Key Takeaway
+Use `glassProminent` sparingly for true primary intent; keep secondary/navigation actions lighter.
+
+- Primary: often `glassProminent`
+- Secondary/navigation: often `glass`
+- Destructive: clear semantic tint + restrained prominence
+- Over-prominence is a hierarchy bug
+
+Button style is a semantic decision, not only a visual one.
+
+---
