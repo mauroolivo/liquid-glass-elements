@@ -131,3 +131,52 @@ If yes, use the system component. If no (e.g., "I need immersive floating action
 **The test:** Toggle between system and custom floating in Stage 2. On rotation, check safe areas. Tap actions and verify touch targets. Compare accessibility. The system version requires almost zero work; the custom version requires you to solve every problem again.
 
 ---
+
+## Stage 3 — First Custom Glass Effect
+
+### 📋 What It's About
+Introduction to the `glassEffect()` API (iOS 18+) and understanding how it differs from `Material`. Stage 3 compares static material backgrounds with contextual glass rendering. The goal is to observe that `glassEffect()` is more sophisticated: it adapts to content beneath it, responds to light/dark, and feels integrated rather than "pasted on."
+
+### 🧠 Mental Model
+
+```
+MATERIAL.THIN                       GLASSEFFECT()
+┌──────────────────────────┐        ┌──────────────────────────┐
+│ Static blur + opacity    │        │ Contextual rendering     │
+├──────────────────────────┤        ├──────────────────────────┤
+│ • Fixed appearance       │        │ • Adapts to content      │
+│ • Same on all backgrounds│        │ • Light-aware            │
+│ • Simple to render       │        │ • Interaction-aware      │
+│ • Predictable           │        │ • More sophisticated     │
+│ • Feels separate        │        │ • Feels integrated       │
+└──────────────────────────┘        └──────────────────────────┘
+      ✅ Works                            ⭐ Better
+```
+
+**Key insight:** `glassEffect()` = Material + contextual awareness. It's not just blur; it's responsive rendering.
+
+### 🎯 Key Takeaway
+
+**`glassEffect()` is contextual; `Material` is static.**
+
+`Material.thin` is a safe baseline that works everywhere. It's blur + opacity, always the same.
+
+`glassEffect()` is smarter. It responds to:
+- Content beneath (adapts to colors/patterns)
+- Light/dark appearance (automatic semantic color)
+- Interaction state (visual feedback on press)
+- Environment (Reduce Transparency, etc.)
+
+When testing Stage 3:
+- On a vibrant gradient: `glassEffect()` should feel more integrated
+- On a busy pattern: `glassEffect()` should maintain better legibility
+- On interaction: `glassEffect()` should provide better visual feedback
+
+**When to use which:**
+- Need a simple frosted surface? → `Material.thin`
+- Building an immersive control? → `glassEffect()`
+- Unsure? → Start with `Material`, upgrade to `glassEffect()` if it looks wrong
+
+**iOS 17 fallback:** If targeting iOS 17, use `Material` as fallback. iOS 18+ can upgrade to `glassEffect()` with `@available` guards.
+
+---
