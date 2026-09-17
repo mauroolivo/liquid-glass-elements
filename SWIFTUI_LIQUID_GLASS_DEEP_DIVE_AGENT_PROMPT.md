@@ -75,6 +75,16 @@ For every stage:
 
 Never automatically continue. When I say `next`, continue to the next stage.
 
+## Stage Documentation Rule
+
+**For every completed stage, document the following in `STAGE_NOTES.md`:**
+
+1. **What it's about** — One or two sentences describing the stage's objective and scope.
+2. **Mental model** (if applicable) — A visual or conceptual diagram/explanation showing the key principle being taught.
+3. **Key takeaway** — The single most important insight to carry forward to the next stage.
+
+**This file evolves as stages are completed.** Do not write ahead; update only when a stage is finished and before moving to the next one. This serves as a reference for reviewing concepts and understanding the progression.
+
 ## Project organization strategy
 
 **Goal:** Keep code modular and allow backward inspection of all stages without breaking earlier work.

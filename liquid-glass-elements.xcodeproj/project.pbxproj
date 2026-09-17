@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		34F7A9E7305ADAF100DCC278 /* SWIFTUI_LIQUID_GLASS_DEEP_DIVE_AGENT_PROMPT.md in Resources */ = {isa = PBXBuildFile; fileRef = 34F7A9E6305ADAF100DCC278 /* SWIFTUI_LIQUID_GLASS_DEEP_DIVE_AGENT_PROMPT.md */; };
+		34F7AA0C305BC2E400DCC278 /* STAGE_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 34F7AA0B305BC2E400DCC278 /* STAGE_NOTES.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		34F7A9D8305ADADB00DCC278 /* liquid-glass-elements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "liquid-glass-elements.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F7A9E6305ADAF100DCC278 /* SWIFTUI_LIQUID_GLASS_DEEP_DIVE_AGENT_PROMPT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SWIFTUI_LIQUID_GLASS_DEEP_DIVE_AGENT_PROMPT.md; sourceTree = "<group>"; };
+		34F7AA0B305BC2E400DCC278 /* STAGE_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = STAGE_NOTES.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,6 +40,7 @@
 			isa = PBXGroup;
 			children = (
 				34F7A9E6305ADAF100DCC278 /* SWIFTUI_LIQUID_GLASS_DEEP_DIVE_AGENT_PROMPT.md */,
+				34F7AA0B305BC2E400DCC278 /* STAGE_NOTES.md */,
 				34F7A9DA305ADADB00DCC278 /* liquid-glass-elements */,
 				34F7A9D9305ADADB00DCC278 /* Products */,
 			);
@@ -115,6 +118,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F7AA0C305BC2E400DCC278 /* STAGE_NOTES.md in Resources */,
 				34F7A9E7305ADAF100DCC278 /* SWIFTUI_LIQUID_GLASS_DEEP_DIVE_AGENT_PROMPT.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
