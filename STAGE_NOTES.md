@@ -180,3 +180,33 @@ When testing Stage 3:
 **iOS 17 fallback:** If targeting iOS 17, use `Material` as fallback. iOS 18+ can upgrade to `glassEffect()` with `@available` guards.
 
 ---
+
+## Stage 4 — Glass Shape and Geometry
+
+### What It's About
+Stage 4 focuses on geometry discipline: corner radius, padding, spacing rhythm, and size consistency across control types (icon button, text button, segmented actions, large action, badge). It contrasts random geometry (incorrect) with coherent geometry (preferred).
+
+### Mental Model
+
+```text
+CONTROL PURPOSE
+    -> chooses base shape (circle / capsule / rounded rect)
+    -> chooses target size and padding
+    -> chooses corner rhythm shared with nearby controls
+    -> creates visual family + predictable touch behavior
+```
+
+If each control chooses arbitrary radii/padding, the interface feels noisy. If geometry is consistent, controls feel related and intentional.
+
+### Key Takeaway
+Use a geometry system, not one-off numbers.
+
+- Icon actions: stable circular targets
+- Text actions: capsule or rounded rect with readable padding
+- Segments: equal vertical rhythm and related corners
+- Prominent actions: larger but same shape language
+- Badges: compact corners proportional to size
+
+The visual polish in glass UI is mostly geometry, not extra effects.
+
+---
