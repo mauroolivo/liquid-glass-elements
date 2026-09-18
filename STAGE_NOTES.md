@@ -269,3 +269,40 @@ Use decorative glass only when the element is truly passive. If the user can act
 **The test:** Compare the decorative glass card with the interactive glass button. Tap the real control and watch the state, label, and press feedback change. The decorative version should remain static, which is exactly why it is not enough for an action.
 
 ---
+
+## Stage 7 — Tint, prominence and semantic color
+
+### 📋 What It's About
+Stage 7 explores when tint adds meaning and when it becomes visual noise. It compares neutral, tinted, and prominent glass treatments across semantic actions such as play, favorite, confirm, delete, and record. The goal is to learn that glass already gives a control presence; tint should be reserved for meaning, not decoration.
+
+### 🧠 Mental Model
+
+```text
+GLASS ALREADY HAS PRESENCE            TINT ADDS MEANING
+┌──────────────────────────┐         ┌──────────────────────────┐
+│ • Control is visible     │         │ • Role is clearer        │
+│ • Shape carries weight   │         │ • Action gets identity   │
+│ • No extra color needed  │         │ • Semantic signal added  │
+│ • Avoids noise           │         │ • Priority becomes clear │
+└──────────────────────────┘         └──────────────────────────┘
+        ✅ BASELINE                         ✅ ONLY WHEN HELPFUL
+```
+
+**Key principle:** Tint should communicate something specific. If it does not encode role, priority, or state, it may just be noise layered on top of already-present glass.
+
+### 🎯 Key Takeaway
+
+**Use tint sparingly; let glass do the heavy lifting.**
+
+Tint is best when it reinforces semantic meaning:
+- Play: primary blue emphasis
+- Favorite: accent color for preference
+- Confirm: success signal
+- Delete: destructive red
+- Record: action/attention color
+
+When every control is bright and prominent, hierarchy collapses. The preferred version uses tint selectively so the user can read priority at a glance.
+
+**The test:** Compare the oversaturated version with the selective version on vibrant, dark, and light backgrounds. Notice whether tint improves clarity or distracts from it.
+
+---
