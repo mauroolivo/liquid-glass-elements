@@ -396,3 +396,33 @@ In the menu example, the collapsed `+` trigger and the expanded `Close` control 
 **The test:** Compare the ordinary transition with the glass-identity version. Ask whether the compact trigger feels like it becomes the close control, or whether the interface simply swaps unrelated elements.
 
 ---
+
+## Stage 11 — GlassEffectTransition
+
+### 📋 What It's About
+Stage 11 compares ordinary SwiftUI transitions with Liquid Glass-specific transitions. The focus is on how glass appears/disappears and whether transition style improves continuity or adds distraction.
+
+### 🧠 Mental Model
+
+```text
+ORDINARY TRANSITION                GLASS TRANSITION
+┌──────────────────────────┐       ┌──────────────────────────┐
+│ • View enter/exit        │       │ • Glass-aware enter/exit │
+│ • Generic move/scale     │       │ • Material-aware change  │
+│ • No glass semantics     │       │ • Better continuity      │
+│ • Can feel abrupt        │       │ • Can feel more natural  │
+└──────────────────────────┘       └──────────────────────────┘
+        ✅ BASIC                          ✅ CONTEXTUAL
+```
+
+**Key principle:** Use glass-specific transitions when they clarify state changes. If motion becomes decorative noise, prefer simpler transitions.
+
+### 🎯 Key Takeaway
+
+**Transition style should serve continuity, not spectacle.**
+
+`glassEffectTransition` is most useful when related glass elements change state and the user benefits from smoother continuity. Under Reduce Motion, calmer behavior should take priority over visual flourish.
+
+**The test:** Compare ordinary and glass transition modes across `materialize`, `matchedGeometry`, and `identity`, then enable Reduce Motion and verify the transition calms down.
+
+---
