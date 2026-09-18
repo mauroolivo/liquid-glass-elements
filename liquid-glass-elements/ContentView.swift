@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Stage8_GlassEffectContainer()
+        Stage9_GlassUnion()
     }
 }
 

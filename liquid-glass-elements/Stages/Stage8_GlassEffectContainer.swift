@@ -94,7 +94,7 @@ struct Stage8_GlassEffectContainer: View {
                             .font(.caption)
                             .fontWeight(.bold)
 
-                        Slider(value: $spacing, in: 8...28, step: 1)
+                        Slider(value: $spacing, in: 0...28, step: 1)
                     }
                 }
                 .padding(12)
@@ -145,25 +145,16 @@ private struct Stage8GlassButton: View {
                 .padding(.vertical, 12)
         }
         .foregroundColor(.primary)
-        .buttonStyle(.plain)
-        .stage8GlassSurface()
+        .buttonStyle(.glass)
+//        .buttonStyle(.plain)
+//        .ifAvailableGlassStyle()
     }
 }
 
 private extension View {
     @ViewBuilder
-    func stage8GlassSurface() -> some View {
-        let shape = RoundedRectangle(cornerRadius: 16, style: .continuous)
-
-        if #available(iOS 18, *) {
-            self
-                .glassEffect()
-                .clipShape(shape)
-        } else {
-            self
-                .background(Material.thin)
-                .clipShape(shape)
-        }
+    func ifAvailableGlassStyle() -> some View {
+        self.buttonStyle(.glass)
     }
 }
 

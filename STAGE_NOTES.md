@@ -336,3 +336,33 @@ Use `GlassEffectContainer` when controls are semantically linked and should visu
 **The test:** Compare the independent cluster with the grouped version and adjust spacing. Ask whether the controls feel like one cluster, a toolbar, or just a few floating buttons.
 
 ---
+
+## Stage 9 — Glass unions and grouped controls
+
+### 📋 What It's About
+Stage 9 explores when multiple related controls should feel like a single visual unit. It compares isolated glass buttons with grouped clusters and asks whether the controls are truly semantically related before merging them.
+
+### 🧠 Mental Model
+
+```text
+ISOLATED CONTROLS                  GROUPED CONTROLS
+┌──────────────────────────┐       ┌──────────────────────────┐
+│ • Separate pieces        │       │ • One coherent cluster  │
+│ • No shared identity     │       │ • Shared visual rhythm  │
+│ • Clear separation       │       │ • Clear semantic link   │
+│ • More fragmentation     │       │ • More cohesive         │
+└──────────────────────────┘       └──────────────────────────┘
+        ⚠️ APART                          ✅ TOGETHER
+```
+
+**Key principle:** Union should reinforce meaning. It is useful when the controls belong to the same task, not when it merely looks stylish.
+
+### 🎯 Key Takeaway
+
+**Group only what belongs together.**
+
+Use union/grouping for compact clusters like media transport or filter controls. Leave unrelated controls separate so hierarchy stays honest and interaction remains obvious.
+
+**The test:** Compare the isolated version with the grouped version for both media and filter controls. Ask whether the union helps the user understand the task faster or just makes the interface look more decorative.
+
+---
