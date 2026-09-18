@@ -239,3 +239,33 @@ Use `glassProminent` sparingly for true primary intent; keep secondary/navigatio
 Button style is a semantic decision, not only a visual one.
 
 ---
+
+## Stage 6 — Interactive custom glass
+
+### 📋 What It's About
+Stage 6 separates decorative glass from genuine interaction. It contrasts a control that only looks interactive with a real button that changes state, responds to press, and communicates its purpose clearly. The goal is to understand that visual polish is not enough: the control must behave like a control.
+
+### 🧠 Mental Model
+
+```text
+LOOKS LIKE A CONTROL               IS A REAL CONTROL
+┌──────────────────────────┐      ┌──────────────────────────┐
+│ • Decorative only        │      │ • Button semantics       │
+│ • No state change        │      │ • Press feedback         │
+│ • No accessibility hint  │      │ • State changes          │
+│ • No trust-building      │      │ • Trustworthy behavior   │
+└──────────────────────────┘      └──────────────────────────┘
+      ❌ APPEARANCE ONLY              ✅ SEMANTICS + APPEARANCE
+```
+
+**Key principle:** Interaction semantics matter more than appearance. Glass can make something look important, but only real controls earn the user's trust.
+
+### 🎯 Key Takeaway
+
+**If it looks tappable, it should behave tappable.**
+
+Use decorative glass only when the element is truly passive. If the user can act on it, it should be a `Button`, expose accessibility hints, and give clear press feedback.
+
+**The test:** Compare the decorative glass card with the interactive glass button. Tap the real control and watch the state, label, and press feedback change. The decorative version should remain static, which is exactly why it is not enough for an action.
+
+---
