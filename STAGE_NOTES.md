@@ -366,3 +366,33 @@ Use union/grouping for compact clusters like media transport or filter controls.
 **The test:** Compare the isolated version with the grouped version for both media and filter controls. Ask whether the union helps the user understand the task faster or just makes the interface look more decorative.
 
 ---
+
+## Stage 10 — Morphing and glass identity
+
+### 📋 What It's About
+Stage 10 explores expansion and collapse transitions for a compact action menu. It compares a normal SwiftUI transition with a version that gives Liquid Glass stable semantic identity, so the compact trigger and expanded close control can feel like two states of the same element.
+
+### 🧠 Mental Model
+
+```text
+STATE SWAP                           SEMANTIC MORPH
+┌──────────────────────────┐         ┌──────────────────────────┐
+│ • One view disappears    │         │ • One control evolves    │
+│ • Another appears        │         │ • Identity is preserved  │
+│ • Relationship is weak   │         │ • Relationship is clear  │
+│ • Feels more abrupt      │         │ • Feels continuous       │
+└──────────────────────────┘         └──────────────────────────┘
+        ⚠️ REPLACEMENT                    ✅ CONTINUITY
+```
+
+**Key principle:** Morphing should follow semantic identity, not just geometry. If two elements represent the same role across states, give them shared identity.
+
+### 🎯 Key Takeaway
+
+**Preserve identity for controls that keep the same meaning across states.**
+
+In the menu example, the collapsed `+` trigger and the expanded `Close` control are both the menu toggle. They deserve shared identity more than the newly introduced action buttons do.
+
+**The test:** Compare the ordinary transition with the glass-identity version. Ask whether the compact trigger feels like it becomes the close control, or whether the interface simply swaps unrelated elements.
+
+---
