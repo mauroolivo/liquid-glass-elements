@@ -306,3 +306,33 @@ When every control is bright and prominent, hierarchy collapses. The preferred v
 **The test:** Compare the oversaturated version with the selective version on vibrant, dark, and light backgrounds. Notice whether tint improves clarity or distracts from it.
 
 ---
+
+## Stage 8 — GlassEffectContainer
+
+### 📋 What It's About
+Stage 8 compares nearby glass elements rendered independently versus coordinated inside `GlassEffectContainer`. The goal is to learn when related glass controls should feel like a group instead of three separate floating pieces.
+
+### 🧠 Mental Model
+
+```text
+INDEPENDENT GLASS                  COORDINATED GLASS
+┌──────────────────────────┐       ┌──────────────────────────┐
+│ • Separate surfaces      │       │ • Related surfaces      │
+│ • No shared coordination  │       │ • Shared rendering logic │
+│ • Weaker grouping signal  │       │ • Stronger grouping      │
+│ • Can feel accidental     │       │ • Feels intentional      │
+└──────────────────────────┘       └──────────────────────────┘
+        ⚠️ SEPARATE                     ✅ ONE VISUAL SYSTEM
+```
+
+**Key principle:** `GlassEffectContainer` is about coordination, not decoration. Nearby glass belongs together only when it represents a related control system.
+
+### 🎯 Key Takeaway
+
+**Group related glass; leave unrelated glass alone.**
+
+Use `GlassEffectContainer` when controls are semantically linked and should visually behave like one unit. If the controls are unrelated, keep them separate and let spacing communicate that they are distinct.
+
+**The test:** Compare the independent cluster with the grouped version and adjust spacing. Ask whether the controls feel like one cluster, a toolbar, or just a few floating buttons.
+
+---

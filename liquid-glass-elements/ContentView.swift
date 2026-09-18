@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Stage7_TintAndColor()
+        Stage8_GlassEffectContainer()
     }
 }
 
