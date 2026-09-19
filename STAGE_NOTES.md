@@ -426,3 +426,30 @@ ORDINARY TRANSITION                GLASS TRANSITION
 **The test:** Compare ordinary and glass transition modes across `materialize`, `matchedGeometry`, and `identity`, then enable Reduce Motion and verify the transition calms down.
 
 ---
+
+## Stage 12 — Scrolling underneath glass
+
+### 📋 What It's About
+Stage 12 explores floating controls above rich scrolling content. It compares an incorrect opaque control bar that blocks the content relationship with a preferred adaptive glass control layer that stays legible while content moves beneath it.
+
+### 🧠 Mental Model
+
+```text
+CONTENT SCROLLS UNDER
+        ↓
+CONTROL LAYER STAYS ELEVATED
+        ↓
+GLASS ADAPTS TO PRESERVE SEPARATION
+```
+
+If you place opaque surfaces at the top, the control layer disconnects from content. If you use adaptive material/glass, the control layer stays readable while still relating to motion and color below.
+
+### 🎯 Key Takeaway
+
+**Glass controls should float above content, not block it.**
+
+When content scrolls beneath top controls, avoid hard opaque bars unless they are intentionally structural. Adaptive glass/material keeps hierarchy clear and maintains visual continuity as the underlying content changes.
+
+**The test:** Scroll vibrant cards under both versions. In the incorrect version, the top panel feels pasted and disconnected. In the preferred version, controls remain clear while preserving a sense of depth and relationship to moving content.
+
+---
