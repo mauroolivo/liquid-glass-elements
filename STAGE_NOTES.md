@@ -633,3 +633,34 @@ Use at least 44pt targets, avoid color-only state meaning, and respect Reduce Mo
 **The test:** Toggle incorrect/fixed on busy backgrounds, enable large Dynamic Type and motion constraints, and verify the fixed control remains understandable and tappable.
 
 ---
+
+## Stage 18 — Final Liquid Glass interface
+
+### 📋 What It's About
+Stage 18 combines all major lessons into one restrained production-style screen: rich scrolling content, system navigation and toolbar actions, a small custom floating glass action group, an interactive glass control, and a semantic morphing transition.
+
+### 🧠 Mental Model
+
+```text
+CONTENT-FIRST SURFACE
+    +
+SYSTEM NAVIGATION CHROME
+    +
+SMALL PURPOSEFUL GLASS CONTROLS
+    +
+ACCESSIBILITY + MOTION ADAPTATION
+    ->
+COHERENT, PRODUCTION-READY HIERARCHY
+```
+
+The capstone is not about showing every API at once. It is about selecting the minimal amount of glass needed to make hierarchy clearer while preserving readability and behavior.
+
+### 🎯 Key Takeaway
+
+**Good Liquid Glass design is selective, semantic, and adaptive.**
+
+Keep content readable, keep system structures system-owned, and reserve custom glass for controls that truly benefit from elevation or continuity. If a glass element cannot justify its purpose, remove it.
+
+**The test:** Verify the screen across light/dark and busy/simple backgrounds, search/filter states, expanded/collapsed floating actions, and motion/accessibility preferences. The interface should remain clear in all cases without feeling over-designed.
+
+---
