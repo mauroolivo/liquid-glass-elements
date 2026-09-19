@@ -427,6 +427,35 @@ ORDINARY TRANSITION                GLASS TRANSITION
 
 ---
 
+## Stage 11.5 - Glass lens motion
+
+### 📋 What It's About
+Stage 11.5 introduces motion-driven glass behavior. It compares exaggerated lens-like motion against restrained motion so you can see when movement supports hierarchy versus when it becomes distracting.
+
+### 🧠 Mental Model
+
+```text
+MOTION INPUT (scroll + drag/tilt)
+        ->
+LENS RESPONSE (offset + subtle transform)
+        ->
+READABILITY CHECK
+        ->
+IF DISTRACTING, REDUCE MOTION AMPLITUDE
+```
+
+Glass lens motion should communicate spatial relationship, not become a visual effect that competes with content.
+
+### 🎯 Key Takeaway
+
+**Lens motion should be subtle, purposeful, and accessibility-aware.**
+
+Use small, clamped movement ranges and respect Reduce Motion. If users notice the effect before they notice the content hierarchy, the motion is too strong.
+
+**The test:** Compare incorrect vs preferred while dragging and scrolling. Then enable Reduce Motion and verify that motion is minimized while control clarity remains intact.
+
+---
+
 ## Stage 12 — Scrolling underneath glass
 
 ### 📋 What It's About
