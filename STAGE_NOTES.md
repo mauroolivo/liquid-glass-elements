@@ -511,3 +511,32 @@ Use native navigation and toolbar APIs for predictable placement, safe-area hand
 **The test:** Toggle between system and floating architectures, then check portrait/landscape and safe-area edges. The better architecture keeps actions discoverable without making the screen feel over-customized.
 
 ---
+
+## Stage 14 — Tab bars and glass by context
+
+### 📋 What It's About
+Stage 14 focuses on tab bars as system chrome. It compares a native `TabView` tab bar, which gets its glass-like treatment from the OS, with a custom floating bar that you style manually. The point is to see that tab bars are usually a system decision, not a place to reinvent glass one button at a time.
+
+### 🧠 Mental Model
+
+```text
+TAB CHOICE
+    -> System navigation root?
+        -> Use TabView / tab bar
+    -> Floating contextual control?
+        -> Build a custom bar
+    -> Need the bar to look glassy?
+        -> Prefer system chrome first
+```
+
+If the control is a tab, the system bar already handles the glass-like treatment, selection behavior, and safe-area coordination. Custom bars are only worth it when the interaction is not really a tab bar anymore.
+
+### 🎯 Key Takeaway
+
+**Tab bars are usually glass by context, not by custom effect.**
+
+Use `TabView` when the UI is about top-level destinations. If you make your own floating tab bar, you take over spacing, contrast, and adaptation work that the system already does well.
+
+**The test:** Switch between system and custom modes, then change backgrounds. The system tab bar should feel like built-in chrome, while the custom bar should feel like your own manually assembled surface.
+
+---

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Stage11_5_GlassLensMotion()
+        Stage14_TabBarGlass()
     }
 }
 
