@@ -51,7 +51,7 @@ Do not assume an API exists merely because it appears in this prompt. If the SDK
 - [ ] Create `Shared/` folder in Xcode project for `PreviewConfigurations.swift`, `BackgroundContent.swift`, `ComparisonView.swift`.
 - [ ] Decide: Will you commit after each stage? (Recommended.)
 - [ ] Read the "Project organization strategy" section above carefully.
-- [ ] Skim all 17 stage titles to understand the progression.
+- [ ] Skim all 18 stage titles to understand the progression.
 - [ ] Ready to begin Stage 0.
 
 ## Fundamental design principle
@@ -168,7 +168,7 @@ Liquid Glass is contextual, not a static RGBA color or blur. Its appearance can 
 
 **Project name:** Use the existing `liquid-glass-elements` Xcode project. (Rename to `LiquidGlassLab` if desired, but not required.)
 
-**Scope:** Eventually the final Stage 17 interface should include immersive content, floating controls, toolbar actions, search, filter controls, a compact action palette, expandable controls, glass morphing, navigation, and scrolling content. Do not implement the final interface at the beginning. Every stage introduces one piece.
+**Scope:** Eventually the final Stage 18 interface should include immersive content, floating controls, toolbar actions, search, filter controls, a compact action palette, expandable controls, glass morphing, navigation, and scrolling content. Do not implement the final interface at the beginning. Every stage introduces one piece.
 
 **Existing code:** The initial `ContentView.swift` and `liquid_glass_elementsApp.swift` are starting points only. You will replace or extend them as each stage progresses. Do not preserve code from Stage N in the main views after moving to Stage N+1; instead, move it to `Stages/StageN_*.swift` for reference.
 
@@ -693,25 +693,27 @@ Do not create a custom floating toolbar merely because Liquid Glass exists. Comp
 
 Stop. Wait for `next` command.
 
-# Stage 14 — Accessibility and environmental adaptation
+# Stage 14 — Tab bars and glass by context
 
-**Time estimate:** 2–3 hours
+**Time estimate:** 1.5–2 hours
 
-Test Reduce Transparency, Increase Contrast, Reduce Motion, Differentiate Without Color, large/accessibility Dynamic Type, and light/dark appearance where relevant.
+Build two versions of the same destination-oriented interface:
 
-Observe how system controls respond. Do not defeat system adaptation to preserve screenshot-perfect glass. Inspect contrast, legibility, touch targets, animation, and semantic hierarchy. Build one custom glass control that initially fails accessibility testing, then fix it.
+1. System `TabView` + native tab bar
+2. Custom floating tab bar imitation
 
-Teach: **Liquid Glass is adaptive; a custom design that only works under one visual environment is incomplete.**
+Observe that system tab bars adopt platform chrome automatically (glass/material by context). Compare with the custom bar where you own spacing, contrast, and adaptation.
+
+Do not force custom glass on navigation structures that are already solved by system components. Use this stage to understand when a tab bar should remain system-owned.
 
 ## Stage 14 exit criteria
 
-- [ ] Built `Stage14_Accessibility.swift`.
-- [ ] Created custom glass control that initially has accessibility issues (low contrast, small touch target, ignores Reduce Motion).
-- [ ] Tested on: light/dark mode, Reduce Transparency, Increase Contrast, Reduce Motion, large Dynamic Type.
-- [ ] Observed failures: legibility, touch targets, animation, semantic meaning.
-- [ ] Fixed each issue: increased contrast, enlarged touch target, respected Reduce Motion, maintained semantic meaning without color alone.
-- [ ] Re-tested: verified all accessibility settings work.
-- [ ] Noted system control behavior in same environments (comparison).
+- [ ] Built `Stage14_TabBarGlass.swift`.
+- [ ] Created system tab version using `TabView` with 3+ destinations.
+- [ ] Created custom floating bar version for comparison.
+- [ ] Tested both on light/dark/busy backgrounds.
+- [ ] Compared behavior: safe area, orientation, selection clarity, adaptation.
+- [ ] Explained: why system tab bars are usually preferable for top-level navigation.
 
 Stop. Wait for `next` command.
 
@@ -785,7 +787,29 @@ Refactor each case.
 
 Stop. Wait for `next` command.
 
-# Stage 17 — Final Liquid Glass interface
+# Stage 17 — Accessibility and environmental adaptation
+
+**Time estimate:** 2–3 hours
+
+Test Reduce Transparency, Increase Contrast, Reduce Motion, Differentiate Without Color, large/accessibility Dynamic Type, and light/dark appearance where relevant.
+
+Observe how system controls respond. Do not defeat system adaptation to preserve screenshot-perfect glass. Inspect contrast, legibility, touch targets, animation, and semantic hierarchy. Build one custom glass control that initially fails accessibility testing, then fix it.
+
+Teach: **Liquid Glass is adaptive; a custom design that only works under one visual environment is incomplete.**
+
+## Stage 17 exit criteria
+
+- [ ] Built `Stage17_Accessibility.swift`.
+- [ ] Created custom glass control that initially has accessibility issues (low contrast, small touch target, ignores Reduce Motion).
+- [ ] Tested on: light/dark mode, Reduce Transparency, Increase Contrast, Reduce Motion, large Dynamic Type.
+- [ ] Observed failures: legibility, touch targets, animation, semantic meaning.
+- [ ] Fixed each issue: increased contrast, enlarged touch target, respected Reduce Motion, maintained semantic meaning without color alone.
+- [ ] Re-tested: verified all accessibility settings work.
+- [ ] Noted system control behavior in same environments (comparison).
+
+Stop. Wait for `next` command.
+
+# Stage 18 — Final Liquid Glass interface
 
 **Time estimate:** 3–4 hours
 
@@ -818,9 +842,9 @@ Test all combinations of:
 | Reduce Motion | Off, On |
 | Interaction | Idle, Pressed, Transitioning, Scrolling |
 
-## Stage 17 exit criteria
+## Stage 18 exit criteria
 
-- [ ] Built `Stage17_FinalInterface.swift`.
+- [ ] Built `Stage18_FinalInterface.swift`.
 - [ ] Verified rich scrolling content beneath glass controls.
 - [ ] Verified system navigation (NavigationStack, Toolbar).
 - [ ] Verified custom floating glass group (small, purposeful).
@@ -843,12 +867,13 @@ Stop. Course complete. Await final reflection prompt if desired.
 - **Stages 3–7:** Require Stages 0 + (2 recommended, but 1 is acceptable)
 - **Stages 8–11:** Require Stages 0–3 + 6
 - **Stages 12–13:** Require Stages 0–3 + 5
-- **Stage 14:** Can run after any custom glass stage; emphasizes Stage 6
+- **Stage 14:** Can run after Stage 2 (tab/navigation architecture comparison)
 - **Stage 15:** Requires Stages 8–11 (many elements to profile)
 - **Stage 16:** Draws from all previous stages
-- **Stage 17:** Capstone; requires 0–7, 12–14 understanding
+- **Stage 17:** Can run after any custom glass stage; emphasizes Stage 6
+- **Stage 18:** Capstone; requires 0–7, 12–17 understanding
 
-**If on iOS 17 or earlier:** Skip Stages 3–11. Focus on Stages 0–2, 13–14 (system components and accessibility).
+**If on iOS 17 or earlier:** Skip Stages 3–11. Focus on Stages 0–2, 13–14 (system components), and 17 (accessibility adaptation).
 
 ## Total time estimate
 
@@ -857,10 +882,10 @@ Stop. Course complete. Await final reflection prompt if desired.
 | 0–2 | 4–6 | Foundation + system design |
 | 3–7 | 7–9 | Core custom glass APIs |
 | 8–11 | 6–8 | Advanced glass coordination |
-| 12–14 | 6–8 | Real-world integration + accessibility |
+| 12–14 | 6–8 | Real-world integration + tab architecture |
 | 15 | 2–3 | Performance profiling |
-| 16–17 | 5–7 | Anti-patterns + final capstone |
-| **Total** | **30–41 hours** | Assumes ~1.5 hrs/stage |
+| 16–18 | 7–10 | Anti-patterns + accessibility + final capstone |
+| **Total** | **32–44 hours** | Assumes ~1.5 hrs/stage |
 
 **Realistic pacing:** 1–2 stages per session, 2–3 sessions per week = **4–6 weeks** at moderate intensity.
 

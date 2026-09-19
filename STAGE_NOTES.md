@@ -575,3 +575,61 @@ Use Instruments to compare heavy vs optimized builds, then keep only optimizatio
 **The test:** Run Core Animation profiling on both modes, compare frame stability and GPU load, and confirm the optimized mode improves smoothness without reducing clarity.
 
 ---
+
+## Stage 16 — Liquid Glass anti-pattern audit
+
+### 📋 What It's About
+Stage 16 turns recurring mistakes into a structured audit. It presents anti-patterns (glass everywhere, glass content cards, tiny touch targets, excessive tint) and compares each with a refactored version.
+
+### 🧠 Mental Model
+
+```text
+SPOT THE PATTERN
+        ->
+ASK 8 AUDIT QUESTIONS
+        ->
+SEPARATE CONTENT FROM CONTROLS
+        ->
+REFACTOR TO PURPOSEFUL GLASS
+```
+
+The core practice is diagnostic thinking: identify why the original decision happened, then refactor with hierarchy, semantics, and accessibility in mind.
+
+### 🎯 Key Takeaway
+
+**Most Liquid Glass problems are hierarchy problems, not rendering problems.**
+
+When glass is used without role clarity, interfaces get noisy and fragile. Refactoring improves readability by limiting glass to meaningful controls, preserving touch target quality, and using tint only for semantic emphasis.
+
+**The test:** Toggle each anti-pattern between incorrect and refactored states on light/dark/busy backgrounds and verify the preferred version is clearer without adding visual weight.
+
+---
+
+## Stage 17 — Accessibility and environmental adaptation
+
+### 📋 What It's About
+Stage 17 contrasts a failing custom glass control against a refactored one. The failing version uses small touch targets, color-only meaning, and animation that can conflict with motion preferences; the fixed version restores semantic labels, touch size, and adaptive behavior.
+
+### 🧠 Mental Model
+
+```text
+GLASS STYLE
+    +
+INTERACTION SEMANTICS
+    +
+ACCESSIBILITY ENVIRONMENT
+    ->
+USABLE CONTROL (OR FRAGILE CONTROL)
+```
+
+A visually attractive control is still broken if it ignores accessibility constraints. Adaptation is part of the design, not an afterthought.
+
+### 🎯 Key Takeaway
+
+**Accessible glass is behavior + semantics + contrast, not just material.**
+
+Use at least 44pt targets, avoid color-only state meaning, and respect Reduce Motion. Keep system adaptation intact instead of forcing one screenshot-perfect look.
+
+**The test:** Toggle incorrect/fixed on busy backgrounds, enable large Dynamic Type and motion constraints, and verify the fixed control remains understandable and tappable.
+
+---
