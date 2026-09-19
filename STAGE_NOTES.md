@@ -453,3 +453,32 @@ When content scrolls beneath top controls, avoid hard opaque bars unless they ar
 **The test:** Scroll vibrant cards under both versions. In the incorrect version, the top panel feels pasted and disconnected. In the preferred version, controls remain clear while preserving a sense of depth and relationship to moving content.
 
 ---
+
+## Stage 13 — Navigation, toolbars, and floating control architecture
+
+### 📋 What It's About
+Stage 13 compares two architectures for the same realistic screen: a system-first setup (`NavigationStack`, `Toolbar`, `searchable`) and a custom floating action palette. The goal is to decide placement by semantics, not by visual novelty.
+
+### 🧠 Mental Model
+
+```text
+CONTROL ROLE
+    -> Global/navigation action?
+        -> System toolbar
+    -> Contextual floating action cluster?
+        -> Custom floating palette
+    -> Content-local action?
+        -> Inline content control
+```
+
+If every action is moved into a floating palette, hierarchy gets blurry. If system controls keep structural actions and custom glass is used only where system placement is insufficient, architecture stays clear.
+
+### 🎯 Key Takeaway
+
+**Default to system toolbars; justify custom floating glass by interaction need.**
+
+Use native navigation and toolbar APIs for predictable placement, safe-area handling, and orientation behavior. Introduce a floating palette only for contextual actions that truly benefit from persistent floating access.
+
+**The test:** Toggle between system and floating architectures, then check portrait/landscape and safe-area edges. The better architecture keeps actions discoverable without making the screen feel over-customized.
+
+---
