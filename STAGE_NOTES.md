@@ -540,3 +540,38 @@ Use `TabView` when the UI is about top-level destinations. If you make your own 
 **The test:** Switch between system and custom modes, then change backgrounds. The system tab bar should feel like built-in chrome, while the custom bar should feel like your own manually assembled surface.
 
 ---
+
+## Stage 15 — Performance and rendering discipline
+
+### 📋 What It's About
+Stage 15 compares two versions of the same scrolling surface: an intentionally excessive one with many independent glass layers and repeated animations, and an optimized one that groups controls and reduces visual churn.
+
+### 🧠 Mental Model
+
+```text
+MORE INDEPENDENT GLASS LAYERS
+        +
+MORE UNRELATED ANIMATIONS
+        ->
+MORE RENDERING WORK
+        ->
+LOWER HEADROOM / WORSE SMOOTHNESS
+
+GROUP RELATED CONTROLS
+        +
+SIMPLIFY ANIMATION
+        ->
+CLEARER HIERARCHY + BETTER RENDERING DISCIPLINE
+```
+
+Performance and design quality align: fewer meaningful layers are easier to read and cheaper to render.
+
+### 🎯 Key Takeaway
+
+**Profile first, then simplify what is measurable.**
+
+Use Instruments to compare heavy vs optimized builds, then keep only optimizations that produce real gains. Group related glass elements, remove decorative motion that does not convey state, and keep effects purposeful.
+
+**The test:** Run Core Animation profiling on both modes, compare frame stability and GPU load, and confirm the optimized mode improves smoothness without reducing clarity.
+
+---
